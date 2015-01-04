@@ -1,6 +1,28 @@
-# ActiveMerchantRecurring
+# Active Merchant Paypal Express Checkout recuring payments.
 
-TODO: Write a gem description
+```Ruby
+     ::EXPRESS_GATEWAY.setup_recurring(
+        :ip                   => request.remote_ip,
+        :currency_code        => 'USD',
+        :return_url           => subscribe_return_url,
+        :cancel_return_url    => subscribe_cancel_url,
+        :description          => "Basic subscription bugcollect.com",
+        :billing_agreement    => {
+            :description      => "monthly subscription at $9.99 per month"
+        },
+```
+
+On success return:
+
+```Ruby
+     ::EXPRESS_GATEWAY.create_recurring_profile(999, token, {
+        :period               => "Month",
+        :frequency            => 1,
+        :cycles               => 12,
+        :start_date           => 1.days.from_now,
+        :description          => "monthly subscription at $9.99 per month"
+      })
+```
 
 ## Installation
 
